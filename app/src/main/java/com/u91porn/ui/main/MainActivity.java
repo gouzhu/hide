@@ -1,6 +1,8 @@
 package com.u91porn.ui.main;
 
 import android.Manifest;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +13,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -23,7 +24,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.orhanobut.logger.Logger;
 import com.u91porn.MyApplication;
 import com.u91porn.R;
 import com.u91porn.ui.BaseAppCompatActivity;
@@ -125,6 +125,10 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
             showSettingDialog();
             return true;
         }
+        if (id == R.id.action_vpn_serve) {
+            showVpnDialog();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -188,6 +192,30 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
                 }
 
 
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    private void showVpnDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("免费翻墙app下载地址");
+        View view = LayoutInflater.from(this).inflate(R.layout.vpn_address_dialog_layout, null);
+        builder.setView(view);
+        builder.setPositiveButton("复制", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                String address = getString(R.string.action_vpn_download_address);
+                ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                cm.setText(address);
+                Toast.makeText(getApplicationContext(), "复制成功，请打开浏览器粘贴地址下载",Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -287,15 +315,17 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
                 switchContent(mCurrentFragment, lastMonthHotFragment);
                 setTitle(R.string.last_month_hot);
             }
-        } else if (id == R.id.nav_hd_video) {
-            if (mCurrentFragment != hdVideoFragment) {
-                if (hdVideoFragment == null) {
-                    hdVideoFragment = CommonFragment.getInstance("hd", null);
-                }
-                switchContent(mCurrentFragment, hdVideoFragment);
-                setTitle(R.string.hd_video);
-            }
-        } else if (id == R.id.nav_my_download) {
+        }
+//        else if (id == R.id.nav_hd_video) {
+//            if (mCurrentFragment != hdVideoFragment) {
+//                if (hdVideoFragment == null) {
+//                    hdVideoFragment = CommonFragment.getInstance("hd", null);
+//                }
+//                switchContent(mCurrentFragment, hdVideoFragment);
+//                setTitle(R.string.hd_video);
+//            }
+//        }
+        else if (id == R.id.nav_my_download) {
             Intent intent = new Intent(MainActivity.this, DownloadActivity.class);
             startActivityWithAnimotion(intent);
             needCloseMenu = false;
@@ -304,7 +334,7 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
             startActivityWithAnimotion(intent);
             needCloseMenu = false;
         } else if (id == R.id.nav_about){
-            showAboutMeDialog();
+            showVpnDialog();
         }
         if (needCloseMenu) {
             drawerLayout.closeDrawer(GravityCompat.START);
@@ -314,7 +344,7 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
 
     private void showAboutMeDialog() {
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setTitle(R.string.about_me);
+        builder.setTitle(R.string.vpn_serve_address);
         builder.setView(R.layout.about_me);
         builder.show();
     }

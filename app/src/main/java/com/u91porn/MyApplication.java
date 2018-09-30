@@ -9,6 +9,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
+import com.google.android.gms.ads.MobileAds;
 import com.helper.loadviewhelper.load.LoadViewHelper;
 import com.liulishuo.filedownloader.FileDownloader;
 import com.liulishuo.filedownloader.model.FileDownloadStatus;
@@ -71,6 +72,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        MobileAds.initialize(this, "ca-app-pub-3616281855076159~1232709639");
         mMyApplication = this;
         host = (String) SPUtils.get(this, Keys.KEY_SP_NOW_ADDRESS, "");
         initBoxStore();

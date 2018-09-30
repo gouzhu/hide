@@ -14,13 +14,13 @@
             android:id="@+id/rb_never_go_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="http://91porn.com/(永久可用地址,但需要翻墙)" />
 
         <RadioButton
             android:id="@+id/rb_will_go_someday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:text="http://91.91p18.space/(不需翻墙，但会被封杀)" />
 
         <RadioButton

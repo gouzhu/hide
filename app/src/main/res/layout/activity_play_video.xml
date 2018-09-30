@@ -11,16 +11,52 @@
         android:layout_width="match_parent"
         android:layout_height="240dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Tip：基本大多数视频需要代理才能观看，否则是没有速度的" />
+
     <FrameLayout
         android:id="@+id/fl_comment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
-        >
+        android:padding="1dp">
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3616281855076159/6204794708">
+        </com.google.android.gms.ads.AdView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Tip：基本大多数视频需要代理才能观看，否则是没有速度的" />
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3616281855076159/7545796536">
+        </com.google.android.gms.ads.AdView>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3616281855076159/9549799881">
+        </com.google.android.gms.ads.AdView>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3616281855076159/5418983186">
+        </com.google.android.gms.ads.AdView>
     </FrameLayout>
+
 </LinearLayout>

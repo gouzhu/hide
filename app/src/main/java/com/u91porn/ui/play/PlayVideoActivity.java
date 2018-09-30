@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.danikula.videocache.HttpProxyCacheServer;
 import com.danikula.videocache.file.FileNameGenerator;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.helper.loadviewhelper.help.OnLoadViewListener;
 import com.helper.loadviewhelper.load.LoadViewHelper;
 import com.liulishuo.filedownloader.BaseDownloadTask;
@@ -61,6 +63,11 @@ public class PlayVideoActivity extends MvpActivity<PlayVideoView, PlayVideoPrese
     private LoadViewHelper helper;
 
     private UnLimit91PornItem unLimit91PornItem;
+    private AdView mAdView1;
+    private AdView mAdView2;
+    private AdView mAdView3;
+    private AdView mAdView4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +76,16 @@ public class PlayVideoActivity extends MvpActivity<PlayVideoView, PlayVideoPrese
         ButterKnife.bind(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView1 = findViewById(R.id.adView1);
+        mAdView2 = findViewById(R.id.adView2);
+        mAdView3 = findViewById(R.id.adView3);
+        mAdView4 = findViewById(R.id.adView4);
+        mAdView1.loadAd(adRequest);
+        mAdView2.loadAd(adRequest);
+        mAdView3.loadAd(adRequest);
+        mAdView4.loadAd(adRequest);
 
         unLimit91PornItem = (UnLimit91PornItem) getIntent().getSerializableExtra(Keys.KEY_INTENT_UNLIMIT91PORNITEM);
 

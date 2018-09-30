@@ -39,7 +39,7 @@
             android:layout_toRightOf="@+id/fl_img"
             android:maxLines="2"
             android:paddingLeft="5dp"
-            android:textColor="#053769"
+            android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
 

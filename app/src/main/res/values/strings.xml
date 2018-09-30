@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">91Porn</string>
+    <string name="app_name">躲被窝</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">地址设置</string>
+    <string name="action_vpn_serve">点击翻墙</string>
+    <string name="action_vpn_download_address">https://github.com/wendaozoubei/app-</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -21,8 +23,9 @@
     <string name="other">其他</string>
     <string name="my_collect">我的收藏</string>
     <string name="my_download">我的下载</string>
-    <string name="about_me">关于</string>
-    <string name="lala_lu">啦啦噜</string>
+    <string name="vpn_serve">翻墙</string>
+    <string name="vpn_serve_address">翻墙app下载地址</string>
+    <string name="lala_lu">请翻墙使用</string>
     <string name="nav_tip">小撸怡情，大撸伤身，强撸灰飞烟灭</string>
     <string name="no_data">暂无数据</string>
     <string name="collect">收藏</string>
